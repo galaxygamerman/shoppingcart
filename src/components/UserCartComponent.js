@@ -6,6 +6,11 @@ function UserCartComponent({
     totalAmountCalculationFunction,
     setCartCourses,
 }) {
+    function ConfirmOrder() {
+        alert("We have Successfully received your order.\nThank you for Choosing to shop with us!");
+        window.location.reload(false);
+    }
+
     return (
         <div className={`cart ${cartCourses.length > 0 ? 'active' : ''}`}>
             <h2>My Cart</h2>
@@ -84,8 +89,7 @@ function UserCartComponent({
                             className="checkout-button"
                             disabled={cartCourses.length === 0 ||
                                 totalAmountCalculationFunction() === 0}
-                        >
-                            Proceed to Payment
+                                onClick={ConfirmOrder}>Proceed to Checkout
                         </button>
                     </div>
                 </div>
